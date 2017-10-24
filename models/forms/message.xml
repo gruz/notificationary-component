@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+			<field name="{sender_settings" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SENDER_SETTINGS"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="text" name="sender_name" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SENDER_NAME" description="" default="" hint="Postman Joe"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="text" name="sender_email" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SENDER_EMAIL" description="" default="" hint="postman.joe@mysite.com"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="text" name="replyto_name" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_REPLY_TO_NAME" description="" default="" hint="Do Not Reply"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="text" name="replyto_email" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_REPLY_TO_EMAIL" description="" default="" hint="do.not.reply@mysite.com"/>
+			<field name="sender_settings}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
+
+			<!--  message body { -->
+			<field name="{message_settings" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFICATION_MESSAGE_SETTINGS"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="emailformat" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_EMAIL_FORMAT" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_EMAIL_FORMAT_DESC" default="plaintext">
+					<option value="plaintext">Plain text</option>
+					<option value="html">HTML</option>
+				</field>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" multiple="multiple" name="attachpreviousversion" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_EMAIL_ATTACH_PREVIOUS_VERSION" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_EMAIL_ATTACH_PREVIOUS_VERSION_DESC" default="0">
+					<option value="html">HTML</option>
+					<option value="txt">plaintext</option>
+					<option value="sql">mysql</option>
+				</field>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="attachdiffinfo" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_ATTACH_DIFF_INFO" default="0" multiple="multiple">
+					<option value="Html/SideBySide">HTML SideBySide</option>
+					<option value="Html/Inline">HTML Inline</option>
+					<option value="Text/Unified">Text Unified</option>
+					<option value="Text/Context">Text Context</option>
+				</field>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="spacer" name="general_spaser1" hr="false" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_BODY_STRUCTURE" class="spacer-enhanced"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="messagebodysource" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_BODY_SOURCE" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_BODY_SOURCE_DESC" default="hardcoded">
+					<option value="hardcoded">PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_BODY_HARDCODED</option>
+					<option value="custom">PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_BODY_CUSTOM</option>
+				</field>
+				<field basetype="list" name="strip_plugin_tags" default="1" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_STRIP_PLUGIN_TAGS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_STRIP_PLUGIN_TAGS_DESC" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="make_image_path_absolute" default="absolute" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MAKE_IMAGE_PATH" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MAKE_IMAGE_PATH_DESC" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="absolute">PLG_SYSTEM_NOTIFICATIONARY_FIELD_MAKE_IMAGE_PATH_ABOSULUTE</option>
+					<option value="relative">PLG_SYSTEM_NOTIFICATIONARY_FIELD_MAKE_IMAGE_PATH_RELATIVE</option>
+				</field>
+
+				<field basetype="list" name="personalize" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_PERSONALIZE" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_PERSONALIZE_DESC" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field name="{messagebodysource_hardcoded" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="messagebodysource" value="hardcoded"/>
+				<field basetype="list" name="ausers_includearticletitle" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_CONTENT_ITEM_TITLE" description="" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includecontenttype" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_CONTENTTYPE" description="" default="0" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includecategorytree" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_CATEGORY" description="" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includeauthorname" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_AUTHOR_NAME" description="" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includemodifiername" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_MODIFIER_NAME" description="" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includecreateddate" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_CREATED_DATE" description="" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includemodifieddate" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_MODIFIED_DATE" description="" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includeintrotext" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_INTROTEXT" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includefulltext" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_FULLTEXT" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="{emailformat_plaintext" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="emailformat" value="plaintext"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="includediffinfo_text" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_DIFF_INFO" default="none">
+					<option value="none">JNONE</option>
+					<option value="Text/Unified">Text Unified</option>
+					<option value="Text/Context">Text Context</option>
+				</field>
+				<field name="emailformat_plaintext}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+				<field name="{emailformat_html" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="emailformat" value="html"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="includediffinfo_html" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_DIFF_INFO" default="none">
+					<option value="none">JNONE</option>
+					<option value="Html/SideBySide">HTML SideBySide</option>
+					<option value="Html/Inline">HTML Inline</option>
+				</field>
+				<field name="emailformat_html}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="ausers_includefrontendviewlink" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_LINK_TO_CONTENT_ITEM" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_LINK_TO_VIEW_A_CONTENT_ITEM_AT_THE_WEB_SITE_IF_PUBLISHED" default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field basetype="list" name="ausers_includefrontendeditlink" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_FRONTEND_EDIT_LINK" description="" default="1" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field basetype="list" name="ausers_includebackendeditlink" default="1" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_BACKEND_EDIT_LINK" description="" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field basetype="list" name="ausers_includeunsubscribelink" default="1" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_INCLUDE_UNSUBSCRIBE_LINK" description="" maxrepeatlength="1" type="gjfields.variablefield">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field name="{allow_subscribe_manage_link" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="allow_subscribe" value="1,2"/>
+					<field maxrepeatlength="1" type="gjfields.variablefield" basetype="text" name="manage_subscription_link" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MANAGE_SUBSCRIPTION_LINK" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MANAGE_SUBSCRIPTION_LINK_DESC" default="" hint="subscribe.html"/>
+				<field name="allow_subscribe_manage_link}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+
+				<field name="messagebodysource_hardcoded}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+				<field name="{messagebodysource_custom" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="messagebodysource" value="custom"/>
+					<field type="gjfields.variablefield" basetype="gjfields.notefixed" name="note_php" class="alert alert-info span8 offset2" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_EVAL_NOTE" maxrepeatlength="1" heading="span"/>
+					<field name="messagesubjectcustom" class="span8" basetype="gjfields.textareafixed" labelAddition="/plugins/system/notificationary/helpers/field_mailbodyHelper.php;$place_holders_subject_label" rows="4" cols="60" default="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_SUBJECT_PLACEHOLDERS_DEFAULT" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_SUBJECT_PLACEHOLDERS" description="" maxrepeatlength="1" type="gjfields.variablefield"/>
+					<field name="messagebodycustom" type="gjfields.variablefield" class="span8" basetype="gjfields.textareafixed" maxrepeatlength="1" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_BODY_PLACEHOLDERS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_BODY_PLACEHOLDERS_DESC" source_parameter="context_or_contenttype,content_type,context" target_parameter="context_or_contenttype,content_type,context" labelAddition="/plugins/system/notificationary/helpers/field_mailbodyHelper.php;$place_holders_body_label" rows="16" cols="60" defaultAddition="/plugins/system/notificationary/helpers/field_mailbodyHelper.php;$default_body" inputAddition="/plugins/system/notificationary/helpers/field_mailbodyHelper.php;$place_holders_body_input"/>
+				<field name="messagebodysource_custom}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+			<field name="message_settings}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
+			<!--  message body } -->
+
+</form>

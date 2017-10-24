@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldpath="/libraries/gjfields">
+
+	<field name="@version" type="gjfields.version" extension="notificationary" xml="/plugins/system/notificationary/notificationary.xml"/>
+
+	<fields name="main" label="COM_CONTENT_ATTRIBS_FIELDSET_LABEL">
+		<fieldset addfieldpath="/plugins/system/notificationary/fields">
+			<field name="created_by" type="createdby" default="0" label="COM_NOTIFICATIONARY_FORM_LBL_RULE_CREATED_BY" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_CREATED_BY" hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_CREATED_BY"/>
+			<field name="modified_by" type="modifiedby" default="0" label="COM_NOTIFICATIONARY_FORM_LBL_RULE_MODIFIED_BY" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_MODIFIED_BY" hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_MODIFIED_BY"/>
+
+			<field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+
+			<field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+				<option value="1">JPUBLISHED</option>
+				<option value="0">JUNPUBLISHED</option>
+				<option value="2">JARCHIVED</option>
+				<option value="-2">JTRASHED</option>
+			</field>
+			<field name="checked_out" type="hidden" filter="unset"/>
+			<field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
+
+			<field name="title" filter="string" type="text" required="true" message="Please, name your rule" label="COM_NOTIFICATIONARY_FORM_LBL_RULE_TITLE" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_TITLE" hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_TITLE"/>
+
+			<field maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.textareafixed" name="use_json_template" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH" rows="2" cols="30" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH_DESC" inputAddition="/plugins/system/notificationary/helpers/field_jsonTemplateHelper.php;$output" class="pull-left" hint="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH_PASTE"/>
+
+			<field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+		</fieldset>
+	</fields>
+
+
+	<fields name="whom" label="NOTIFICATIONARY_AUTHOR_OPTIONS">
+		<fieldset>
+			<field name="whom"  formsource="whom" layout="joomla.form.field.subform.default" type="subform"
+				label="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM"
+				description="COM_NOTIFICATIONARY_FORM_DESC_RULE_SUBFORM"
+				hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM" />
+		</fieldset>
+	</fields>
+
+	<fields name="nswitch" label="NOTIFICATIONARY_NSWITCH">
+		<fieldset >
+			<field name="nswitch"  formsource="nswitch" layout="joomla.form.field.subform.default" type="subform"
+				label="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM"
+				description="COM_NOTIFICATIONARY_FORM_DESC_RULE_SUBFORM"
+				hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM" />
+		</fieldset>
+	</fields>
+
+	<fields name="message" label="NOTIFICATIONARY_MESSAGE">
+		<fieldset >
+			<field name="message"  formsource="message" layout="joomla.form.field.subform.default" type="subform"
+				label="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM"
+				description="COM_NOTIFICATIONARY_FORM_DESC_RULE_SUBFORM"
+				hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM" />
+		</fieldset>
+	</fields>
+
+	<fields name="author_modifier" label="NOTIFICATIONARY_AUTHOR_MODIFIER">
+		<fieldset >
+			<field name="author_modifier"  formsource="author_modifier" layout="joomla.form.field.subform.default" type="subform"
+				label="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM"
+				description="COM_NOTIFICATIONARY_FORM_DESC_RULE_SUBFORM"
+				hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_SUBFORM" />
+		</fieldset>
+	</fields>
+
+
+	<fields name="where" label="NOTIFICATIONARY_WHERE_AND_WHOM">
+		<fieldset >
+			<!-- Notification rules  { -->
+
+			<!-- action and state { -->
+			<field name="{action_state_can_view" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" class="margin-bottom-medium" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_ACTION_STATE_CAN_VIEW"/>
+				<field name="ausers_notifyon" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFY_ON" description="">
+					<option value="0">PLG_SYSTEM_NOTIFICATIONARY_FIELD_NEW_AND_UPDATED</option>
+					<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_NEW_ONLY</option>
+					<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_UPDATED_ONLY</option>
+				</field>
+
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" multiple="multiple" name="status_action_to_notify" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_STATUS_ACTION_TO_NOTIFY" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_STATUS_ACTION_TO_NOTIFY_DESC" default="always">
+					<option value="always">PLG_SYSTEM_NOTIFICATIONARY_FIELD_ALWAYS</option>
+					<option value="1">#~#JSTATUS#~#:#~#JPUBLISHED#~#</option>
+					<option value="0">#~#JSTATUS#~#:#~#JUNPUBLISHED#~#</option>
+					<option value="2">#~#JSTATUS#~#:#~#JARCHIVED#~#</option>
+					<option value="-2">#~#JSTATUS#~#:#~#JTRASHED#~#</option>
+					<option value="publish">#~#PLG_SYSTEM_NOTIFICATIONARY_ACTION#~#:#~#JTOOLBAR_PUBLISH#~#</option>
+					<option value="unpublish">#~#PLG_SYSTEM_NOTIFICATIONARY_ACTION#~#:#~#JTOOLBAR_UNPUBLISH#~#</option>
+					<option value="archive">#~#PLG_SYSTEM_NOTIFICATIONARY_ACTION#~#:#~#JTOOLBAR_ARCHIVE#~#</option>
+					<option value="trash">#~#PLG_SYSTEM_NOTIFICATIONARY_ACTION#~#:#~#JTOOLBAR_TRASH#~#</option>
+				</field>
+
+
+				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="ausers_notifyonlyifcanview" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFY_ONLY_IF_CAN_VIEW" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFY_ONLY_IF_CAN_VIEW_DESC" default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="{oncontentchangestate_is_needed" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="ausers_notifyon" value="0,2"/>
+				<field type="gjfields.variablefield" basetype="list" name="oncontentchangestate" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_ONCONTENTCHANEGSTATE" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_ONCONTENTCHANEGSTATE_DESC" default="1" maxrepeatlength="1">
+					<option value="0">JDISABLED</option>
+					<option value="1">JENABLED</option>
+				</field>
+				<field name="oncontentchangestate_is_needed}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+			<field name="action_state_can_view}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
+			<!-- action and state } -->
+
+
+			<field name="{select_extension_and_content_to_run_notifications_on" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" class="margin-bottom-medium" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SELECT_EXTENSION_AND_CONTENT_TO_RUN_NOTIFICATIONS_ON"/>
+				<!-- Select extension { -->
+				<field name="{20160208192950" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" class="no-box-shadow" label=""/>
+
+				<field name="context_or_contenttype" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="content_type" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTEXTORCONTENTTYPE" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTEXTORCONTENTTYPE_DESC">
+					<option value="content_type">PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTENTTYPE</option>
+					<option value="context">PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTEXT</option>
+				</field>
+
+				<field name="{context" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="context_or_contenttype" value="context" class="content_types_template"/>
+					<field name="context" basetype="na.textareawithpreload" labelAddition="/plugins/system/notificationary/helpers/field_manualcontextsHelper.php;$output_label" preloadTemplatesAddition="/plugins/system/notificationary/helpers/field_manualcontextsHelper.php;$output_templates" rows="4" cols="60" default="" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MANUAL_CONTEXTS" description="" maxrepeatlength="1" type="gjfields.variablefield" class="textareainbunch span8"/>
+					<field type="gjfields.variablefield" basetype="gjfields.notefixed" name="custom_context" class="" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MANUAL_CONTEXTS_DESC" maxrepeatlength="1"/>
+
+				<field name="context}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+
+				<field name="{contenttype" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="context_or_contenttype" value="content_type"/>
+					<field name="content_type" maxrepeatlength="1" basetype="na.contenttypelimited" type="gjfields.variablefield" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTENTTYPE" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTENTTYPE_DESC" multiple="false" default="1"/>
+				<field name="contenttype}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+
+				<field type="gjfields.variablefield" basetype="gjfields.notefixed" name="note_reload" class="alert" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTE_RELOAD" maxrepeatlength="1"/>
+
+				<field name="20160208192950}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
+				<!-- Select extension } -->
+
+				<!-- Select categories { -->
+				<field name="{20111101161730" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" class="no-box-shadow" label=""/>
+
+
+				<field name="ausers_articlegroups" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CATEGORIES" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFY_ON_DESC">
+					<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_SELECTION</option>
+					<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_EXCLUDE_SELECTION</option>
+					<option value="0">JALL</option>
+				</field>
+				<field name="{ausers_articlegroups12" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="ausers_articlegroups" value="1,2"/>
+
+				<field name="{loadcategory" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="context_or_contenttype" value="content_type,context"/>
+					<field name="ausers_articlegroupsselection" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.categoryext" extension="com_content" source_parameter="context_or_contenttype,content_type,context" target_parameter="context_or_contenttype,content_type,context" multiple="multiple" size="20" show_uncategorized="1" label="" description="" class="chzn-custom-value" hint="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CATEGORIES_CUSTOM"/>
+				<field name="loadcategory}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+
+				<!-- Select categories } -->
+
+				<field name="ausers_articlegroups12}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+
+					<field name="allow_subscribe" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="1" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_ALLOW_SUBSCRIBE" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_ALLOW_SUBSCRIBE_DESC">
+						<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_ALLOW_RULE_SUBSCRIBE</option>
+						<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_ALLOW_PER_CATEGORY_SUBSCRIBE</option>
+						<option value="0">JNO</option>
+					</field>
+
+					<field name="{allow_subscribe" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="allow_subscribe" value="1,2"/>
+						<field name="allow_subscribe_default" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="1" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_PER_CATEGORY_SUBSCRIBE_DEFAULT" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_PER_CATEGORY_SUBSCRIBE_DEFAULT_DESC">
+							<option value="1">JYES</option>
+							<option value="0">JNO</option>
+						</field>
+
+						<field type="gjfields.variablefield" basetype="gjfields.notefixed" name="note_manage_subscribe_link" class="alert span12" heading="span" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MANAGE_SUBSCRIPTION_PAGE_NOTE" maxrepeatlength="1"/>
+					<field name="allow_subscribe}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+
+
+				<field name="content_language" type="gjfields.variablefield" basetype="contentlanguage" maxrepeatlength="1" label="JFIELD_LANGUAGE_LABEL" description="PLG_SYSTEM_NOTIFICATIONARY_ARTICLE_LANGUAGE_DESC" default="always" multiple="multiple">
+					<option value="always">PLG_SYSTEM_NOTIFICATIONARY_FIELD_ALWAYS</option>
+					<option value="*">PLG_SYSTEM_NOTIFICATIONARY_FIELD_ONLY_TO_ALL_LANGUAGES</option>
+				</field>
+				<!-- Select content items (e.g. articles) { -->
+				<field name="{ausers_notifyon02_a1" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="ausers_notifyon" value="0,2"/>
+				<field name="ausers_articles" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SPECIFIC_CONTENT_ITEMS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SPECIFIC_DESC">
+					<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_SELECTION</option>
+					<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_EXCLUDE_SELECTION</option>
+					<option value="0">PLG_SYSTEM_NOTIFICATIONARY_FIELD_NO_SPECIFIC_RULES</option>
+				</field>
+				<field name="{ausers_articles12" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="ausers_articles" value="1,2"/>
+				<field name="ausers_articlesselection" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.modalcontentitem" source_parameter="context_or_contenttype,content_type" target_parameter="context_or_contenttype,extension" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTENTITEM_IDS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_CONTENTITEM_IDS_DESC"/>
+				<field name="ausers_articles12}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+				<field name="ausers_notifyon02_a1}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+				<field name="20111101161730}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
+				<!-- Select content items (e.g. articles) } -->
+			<field name="select_extension_and_content_to_run_notifications_on}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
+
+
+
+		</fieldset>
+	</fields>
+</form>

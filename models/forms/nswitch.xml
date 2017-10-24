@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<!-- Notification switch { -->
+	<field name="{notification_switch" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" class="margin-bottom-medium" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_WHERE_TO_SHOW_NOTIFICATION_SWITCH"/>
+		<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="shownotificationswitch" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_NOTIFICATION_SWITCH" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_NOTIFICATION_SWITCH_DESC" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field name="{shownotificationswitch" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="shownotificationswitch" value="1" class=""/>
+		<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="notificationswitchdefault" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFICATION_SWITCH_DEFAULT" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="notificationswitchfrontend" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_NOTIFICATION_SWITCH_FRONTEND" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_NOTIFICATION_SWITCH_FRONTEND_DESC" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field maxrepeatlength="1" type="gjfields.variablefield" basetype="list" name="notificationswitchaddconfirmation" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_NOTIFICATION_SWITCH_CONFIRMATION" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_NOTIFICATION_SWITCH_CONFIRMATION_DESC" default="0">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		<field name="ausers_allowswitchforusergroups" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_GROUP_LEVELS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFY_ON_DESC">
+			<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_SELECTION</option>
+			<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_EXCLUDE_SELECTION</option>
+			<option value="0">JALL</option>
+		</field>
+		<field name="{ausers_allowswitchforusergroups" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="ausers_allowswitchforusergroups" value="1,2" class="wrapblock"/>
+		<field name="ausers_allowswitchforusergroupsselection" maxrepeatlength="1" type="gjfields.variablefield" basetype="usergroup" size="10" multiple="multiple" label="" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_GROUP_LEVELS_DESC"/>
+		<field name="ausers_allowswitchforusergroups}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+		<field name="ausers_allowswitchforusers" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SPECIFIC_USERS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SPECIFIC_DESC">
+			<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_SELECTION</option>
+			<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_EXCLUDE_SELECTION</option>
+			<option value="0">JALL</option>
+		</field>
+		<field name="{ausers_allowswitchforusers" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="ausers_allowswitchforusers" value="1,2" class="wrapblock"/>
+		<field name="ausers_allowswitchforusersselection" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.users" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_IDS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_IDS_DESC"/>
+		<field name="ausers_allowswitchforusers}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+		<field name="shownotificationswitch}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
+	<field name="notification_switch}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
+	<!-- Notification switch } -->
+
+</form>
