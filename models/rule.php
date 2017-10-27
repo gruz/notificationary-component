@@ -223,7 +223,7 @@ class NotificationaryModelRule extends JModelAdmin
 			if (@$table->ordering === '')
 			{
 				$db = JFactory::getDbo();
-				$db->setQuery('SELECT MAX(ordering) FROM #__notificationary_rule');
+				$db->setQuery('SELECT MAX(ordering) FROM #__notificationary');
 				$max             = $db->loadResult();
 				$table->ordering = $max + 1;
 			}

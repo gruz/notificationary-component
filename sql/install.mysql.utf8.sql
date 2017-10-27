@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `#__notificationary_rule` (
+CREATE TABLE IF NOT EXISTS `#__notificationary` (
 `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 
 `ordering` INT(11)  NOT NULL ,

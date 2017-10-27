@@ -524,9 +524,9 @@
 
 	<fields name="extension" label="COM_CONTENT_ATTRIBS_FIELDSET_LABEL">
 		<fieldset>
-			<field name="created_by" type="createdby" default="0" label="COM_NOTIFICATIONARY_FORM_LBL_RULE_CREATED_BY" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_CREATED_BY" hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_CREATED_BY"/>
-			<field name="modified_by" type="modifiedby" default="0" label="COM_NOTIFICATIONARY_FORM_LBL_RULE_MODIFIED_BY" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_MODIFIED_BY" hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_MODIFIED_BY"/>
-			<field name="title" filter="string" type="text" required="true" message="Please, name your rule" label="COM_NOTIFICATIONARY_FORM_LBL_RULE_TITLE" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_TITLE" hint="COM_NOTIFICATIONARY_FORM_LBL_RULE_TITLE"/>
+			<field name="created_by" type="createdby" default="0" label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_CREATED_BY" hint="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
+			<field name="modified_by" type="modifiedby" default="0" label="JGLOBAL_FIELD_MODIFIED_BY_LABEL" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_MODIFIED_BY" hint="JGLOBAL_FIELD_MODIFIED_BY_LABEL"/>
+			<field name="title" filter="string" type="text" required="true" message="Please, name your rule" label="JGLOBAL_TITLE" description="COM_NOTIFICATIONARY_FORM_DESC_RULE_TITLE" hint="JGLOBAL_TITLE"/>
 
 				<field maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.textareafixed" name="use_json_template" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH" rows="2" cols="30" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH_DESC" inputAddition="/plugins/system/notificationary/helpers/field_jsonTemplateHelper.php;$output" class="pull-left" hint="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH_PASTE"/>
 

@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS `#__notificationary_rule`;
+DROP TABLE IF EXISTS `#__notificationary`;

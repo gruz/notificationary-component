@@ -50,7 +50,7 @@ class NotificationaryTablerule extends JTable
 	public function __construct(&$db)
 	{
 		JObserverMapper::addObserverClassToClass('JTableObserverContenthistory', 'NotificationaryTablerule', array('typeAlias' => 'com_notificationary.rule'));
-		parent::__construct('#__notificationary_rule', 'id', $db);
+		parent::__construct('#__notificationary', 'id', $db);
 	}
 
 	/**

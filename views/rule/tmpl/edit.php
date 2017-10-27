@@ -46,10 +46,20 @@ $document->addStyleSheet(JUri::root() . 'media/com_notificationary/css/form.css'
 	action="<?php echo JRoute::_('index.php?option=com_notificationary&layout=edit&id=' . (int) $this->item->id); ?>"
 	method="post" enctype="multipart/form-data" name="adminForm" id="rule-form" class="form-validate">
 
+
+<?php
+/*
+foreach ($this->form->getFieldset('gruz') as $k => $v)
+{
+dump($v,$v->id);
+	echo $v->renderField();
+}
+*/
+?>
 	<div class="form-horizontal">
 		<?php echo $this->form->renderField('@version'); ?>
 
-		<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'where_and_whom')); ?>
+		<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'general')); ?>
 
 		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_NOTIFICATIONARY_TITLE_RULE', true)); ?>
 		<div class="row-fluid">
@@ -93,8 +103,17 @@ $document->addStyleSheet(JUri::root() . 'media/com_notificationary/css/form.css'
 
 		<?php foreach (['where', 'whom', 'nswitch', 'message', 'author_modifier'] as $group_name) : ?>
 				<?php echo JHtml::_('bootstrap.addTab', 'myTab', $group_name, JText::_('NOTIFICATIONARY_' . strtoupper($group_name)), true); ?>
-						<?php foreach ($this->form->getGroup($group_name) as $field) : ?>
-							<?php echo $field->renderField(); ?>
+						<?php foreach ($this->form->getFieldset($group_name) as $field) : ?>
+							<?php
+							$options = [];
+							if ($field->getAttribute('type') == 'subform')
+							{
+								$options = [
+									'class' => $field->getAttribute('class')
+								];
+							}
+							echo $field->renderField($options);
+							?>
 						<?php endforeach; ?>
 				<?php echo JHtml::_('bootstrap.endTab'); ?>
 		<?php endforeach; ?>

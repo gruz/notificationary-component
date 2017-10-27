@@ -121,7 +121,7 @@ class NotificationaryModelRules extends JModelList
 				'list.select', 'DISTINCT a.*'
 			)
 		);
-		$query->from('`#__notificationary_rule` AS a');
+		$query->from('`#__notificationary` AS a');
 
 		// Join over the users for the checked out user
 		$query->select("uc.name AS uEditor");
