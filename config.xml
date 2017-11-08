@@ -1,7 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<config>
-    <fieldset label="COM_NOTIFICATIONARY" name="notificationary">
-        
+<config addfieldpath="/libraries/gjfields">
+    <fieldset label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_GENERAL_SETTINGS" name="notificationary" addfieldpath="/plugins/system/notificationary/fields">
+
+				<field name="@version" type="gjfields.version" extension="notificationary" xml="/plugins/system/notificationary/notificationary.xml"/>
+
+				<field name="replacement_type" type="list" default="default" label="PLG_SYSTEM_NOTIFICATIONARY_NS_REPLACEMENT_TYPE" description="PLG_SYSTEM_NOTIFICATIONARY_NS_REPLACEMENT_TYPE_DESC">
+					<option value="default">JDEFAULT</option>
+					<option value="simple">PLG_SYSTEM_NOTIFICATIONARY_NS_REPLACEMENT_TYPE_OPTION_SIMPLE</option>
+				</field>
+				<field name="{ajax" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" class="margin-bottom-medium" label="PLG_SYSTEM_NOTIFICATIONARY_AJAX_DESC"/>
+					<field type="list" name="useajax" label="PLG_SYSTEM_NOTIFICATIONARY_AJAX" description="PLG_SYSTEM_NOTIFICATIONARY_AJAX_DESC" default="0">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+					<!-- Ajax options { -->
+					<field name="{ajax_options" type="toggler" param="useajax" value="1"/>
+						<field type="list" name="verbose" label="PLG_SYSTEM_NOTIFICATIONARY_AJAX_VERBOSE" description="" default="0">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+						<field type="list" name="ajax_allow_to_cancel" label="PLG_SYSTEM_NOTIFICATIONARY_AJAX_ALLOW_CANCEL" description="PLG_SYSTEM_NOTIFICATIONARY_AJAX_ALLOW_CANCEL_DESC" default="0">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+						<field name="{ajax_allow_to_cancel" type="toggler" param="ajax_allow_to_cancel" value="1"/>
+							<field name="{notify_if_performed_by_selected_users" maxrepeatlength="1" type="blockquote" class="margin-bottom-medium" label="PLG_SYSTEM_NOTIFICATIONARY_WHO_IS_ALLOWED_TO_CANCEL_NOTIFICATIONS"/>
+								<field name="ajax_allowusergroups" maxrepeatlength="1" type="list" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_GROUP_LEVELS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_NOTIFY_ON_DESC">
+									<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_SELECTION</option>
+									<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_EXCLUDE_SELECTION</option>
+									<option value="0">JALL</option>
+								</field>
+								<field name="{ajax_allowusergroups12" maxrepeatlength="1" type="toggler" param="ajax_allowusergroups" value="1,2"/>
+								<field name="ajax_allowusergroupsselection" maxrepeatlength="1" type="usergroup" multiple="multiple" notregistered="0" publicfrontend="disable" registred="disable" label="" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_GROUP_LEVELS_DESC"/>
+								<field name="ajax_allowusergroups12}" maxrepeatlength="1" type="toggler"/>
+								<field name="ajax_allowusers" maxrepeatlength="1" type="list" default="0" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SPECIFIC_USERS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SPECIFIC_DESC">
+									<option value="1">PLG_SYSTEM_NOTIFICATIONARY_FIELD_SELECTION</option>
+									<option value="2">PLG_SYSTEM_NOTIFICATIONARY_FIELD_EXCLUDE_SELECTION</option>
+									<option value="0">JALL</option>
+								</field>
+								<field name="{ajax_allowusers12" maxrepeatlength="1" type="toggler" param="ajax_allowusers" value="1,2"/>
+									<field name="ajax_allowusersselection" maxrepeatlength="1" type="users" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_IDS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_IDS_DESC"/>
+								<field name="ajax_allowusers12}" maxrepeatlength="1" type="toggler"/>
+							<field name="notify_if_performed_by_selected_users}" maxrepeatlength="1" type="blockquote"/>
+							<field type="number" name="ajax_delay" label="PLG_SYSTEM_NOTIFICATIONARY_AJAX_DELAY" description="PLG_SYSTEM_NOTIFICATIONARY_AJAX_DELAY_DESC" default="0" class="span1"/>
+							<field type="number" name="mails_per_iteration" label="PLG_SYSTEM_NOTIFICATIONARY_AJAX_ITERATION_NUMBER" description="PLG_SYSTEM_NOTIFICATIONARY_AJAX_ITERATION_NUMBER_DESC" default="3" class="span1"/>
+						<field name="ajax_allow_to_cancel}" type="toggler"/>
+					<field name="ajax_options}" type="toggler"/>
+					<!-- Ajax options } -->
+				<field name="ajax}" type="blockquote"/>
+
+				<field type="list" name="forceNotTimeLimit" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_FORCENOTTIMELIMIT" description="" default="0">
+					<option value="0">JDISABLED</option>
+					<option value="1">JENABLED</option>
+				</field>
+				<field type="list" name="showsuccessmessage" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_SUCCESS_MESSAGE" description="" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="{showsuccessmessage" type="toggler" param="showsuccessmessage" value="1"/>
+				<field type="textareafixed" name="successmessage" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SUCCESS_MESSAGE" rows="4" cols="31" default="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MAIL_HAS_BEEN_SENT" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_TO_BE_SHOWN_IN_BROWSER_AFTER_ADDING_OR_UPDATING_A_CONTENT_ITEM"/>
+				<field type="list" name="successmessagenumberofusers" label="PLG_SYSTEM_NOTIFICATIONARY_SHOW_NUMBER_OF_EMAILS_SENT" description="PLG_SYSTEM_NOTIFICATIONARY_SHOW_NUMBER_OF_EMAILS_SENT_DESC" default="0">
+					<option value="0">JDISABLED</option>
+					<option value="1">JENABLED</option>
+				</field>
+				<field name="showsuccessmessage}" type="toggler"/>
+				<field type="list" name="showerrormessage" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_ERROR_MESSAGE" description="" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="{showerrormessage" type="toggler" param="showerrormessage" value="1"/>
+				<field type="textareafixed" name="errormessage" label="Error Message" rows="4" cols="31" default="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MAIL_COULD_NOT_BE_SENT" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_MESSAGE_TO_BE_SHOWN_IN_BROWSER_IF_ERROR_HAPPENS"/>
+				<field name="showerrormessage}" type="toggler"/>
+				<!-- General settings } -->
+				<!-- Debug settings { -->
+				<field type="list" name="showContext" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_CONTEXT" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_SHOW_CONTEXT_DESC" default="0">
+					<option value="0">JDISABLED</option>
+					<option value="1">JENABLED</option>
+				</field>
+				<field type="list" name="debug" label="Debug mode" description="" default="0">
+					<option value="0">JDISABLED</option>
+					<option value="1">JENABLED</option>
+				</field>
+				<field name="{fakeusers" type="toggler" param="debug" value="1"/>
+				<field type="list" name="generatefakeusers" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_GENERATE_FAKE_USERS" description="" default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="{generatefakeusers" type="toggler" param="generatefakeusers" value="1"/>
+				<field name="fakeusersgroups" type="usergroup" multiple="multiple" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_GROUP_LEVELS" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_USER_GROUP_LEVELS_DESC"/>
+				<field type="text" name="fakeusersnumber" size="5" label="Number of users per group, integer" description="" default="1"/>
+				<field name="generatefakeusers}" type="toggler"/>
+				<field name="fakeusers}" type="toggler"/>
+				<!-- Debug settings } -->
+
+
     </fieldset>
 
     <fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">

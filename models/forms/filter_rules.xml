@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
     <fields name="filter">
-        <field name="search" type="text" hint="COM_NOTIFICATIONARY_SEARCH_FILTER_SUBMIT"
+        <field name="search" type="text" hint="JSEARCH_FILTER_SUBMIT"
                label="COM_USERS_FILTER_SEARCH_DESC"
                class="js-stools-search-string" />
 
@@ -14,7 +14,7 @@
             <option value="">JOPTION_SELECT_PUBLISHED</option>
         </field>
 
-        
+
 
     </fields>
 
