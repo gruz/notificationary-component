@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    CVS: 1.0.0
+ * @version    CVS: 1.0.1
  * @package    Com_Notificationary
- * @author     gruz <arygroup@gmail.com>
- * @copyright  2017 gruz
+ * @author     Gruz <arygroup@gmail.com>
+ * @copyright  2017 Gruz
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -69,10 +69,10 @@ $sortFields = $this->getSortFields();
 					<?php endif; ?>
 
 									<th class='left'>
-				<?php echo JHtml::_('searchtools.sort',  'COM_NOTIFICATIONARY_RULES_ID', 'a.`id`', $listDirn, $listOrder); ?>
+				<?php echo JHtml::_('searchtools.sort',  'JGLOBAL_FIELD_ID_LABEL', 'a.`id`', $listDirn, $listOrder); ?>
 				</th>
 				<th class='left'>
-				<?php echo JHtml::_('searchtools.sort',  'COM_NOTIFICATIONARY_RULES_TITLE', 'a.`title`', $listDirn, $listOrder); ?>
+				<?php echo JHtml::_('searchtools.sort',  'JGLOBAL_TITLE', 'a.`title`', $listDirn, $listOrder); ?>
 				</th>
 
 					

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<form>
-    <fieldset name="section3" label="Section3">
-        <field name="example_text3" type="text" label="Example Text" />
-        <field name="example_textarea3" type="textarea" label="Example Textarea" cols="40" rows="8" />
-    </fieldset>
-</form>

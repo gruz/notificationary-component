@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @version    CVS: 1.0.0
+ * @version    CVS: 1.0.1
  * @package    Com_Notificationary
- * @author     gruz <arygroup@gmail.com>
- * @copyright  2017 gruz
+ * @author     Gruz <arygroup@gmail.com>
+ * @copyright  2017 Gruz
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 defined('JPATH_BASE') or die;
@@ -58,7 +58,9 @@ class JFormFieldForeignKey extends JFormField
 
 		// Flag to identify if the fk_value is multiple
 		$this->value_multiple = (int) $this->getAttribute('value_multiple', 0);
-		
+
+        $this->required = (string) $this->getAttribute('required', 0);
+
         // Flag to identify if the fk has default order
         $this->ordering = (int) $this->getAttribute('ordering', 0);
 
@@ -112,6 +114,11 @@ class JFormFieldForeignKey extends JFormField
 
 		$input_options = 'class="' . $this->getAttribute('class') . '"';
 
+        if($this->required === "true")
+        {
+            $input_options .= 'required="required"';
+        }
+
 		// Depends of the type of input, the field will show a type or another
 		switch ($this->input_type)
 		{
@@ -147,6 +154,8 @@ class JFormFieldForeignKey extends JFormField
 				{
 					array_unshift($options, JHtml::_('select.option', '', ''));
 				}
+
+
 
 				$html = JHtml::_('select.genericlist', $options, $this->name, $input_options, 'value', 'text', $value, $this->id);
 				break;

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
     <name>com_notificationary</name>
-    <creationDate>2017-10-04</creationDate>
-    <copyright>2017 gruz</copyright>
+    <creationDate>2017-11-07</creationDate>
+    <copyright>2017 Gruz</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-    <author>gruz</author>
+    <author>Gruz</author>
     <authorEmail>arygroup@gmail.com</authorEmail>
-    <authorUrl>http://gruz.org.ua</authorUrl>
-    <version>CVS: 1.0.0</version>
+    <authorUrl>http://gruz.ml</authorUrl>
+    <version>CVS: 1.0.1</version>
     <description></description>
     
     

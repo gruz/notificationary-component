@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @version    CVS: 1.0.0
+ * @version    CVS: 1.0.1
  * @package    Com_Notificationary
- * @author     gruz <arygroup@gmail.com>
- * @copyright  2017 gruz
+ * @author     Gruz <arygroup@gmail.com>
+ * @copyright  2017 Gruz
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 defined('_JEXEC') or die;
@@ -37,11 +37,7 @@ class NotificationaryModelRules extends JModelList
 				'created_by', 'a.`created_by`',
 				'modified_by', 'a.`modified_by`',
 				'title', 'a.`title`',
-				'notifyon', 'a.`notifyon`',
-				'test', 'a.`test`',
-				'subform', 'a.`subform`',
-				'toggle', 'a.`toggle`',
-				'test2', 'a.`test2`',
+				'params', 'a.`params`',
 			);
 		}
 
@@ -184,10 +180,6 @@ class NotificationaryModelRules extends JModelList
 	{
 		$items = parent::getItems();
 
-		foreach ($items as $oneItem)
-		{
-					$oneItem->notifyon = JText::_('COM_NOTIFICATIONARY_RULES_NOTIFYON_OPTION_' . strtoupper($oneItem->notifyon));
-		}
 
 		return $items;
 	}

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @version    CVS: 1.0.0
+ * @version    CVS: 1.0.1
  * @package    Com_Notificationary
- * @author     gruz <arygroup@gmail.com>
- * @copyright  2017 gruz
+ * @author     Gruz <arygroup@gmail.com>
+ * @copyright  2017 Gruz
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 // No direct access
@@ -85,27 +85,6 @@ class NotificationaryTablerule extends JTable
 		if ($task == 'apply' || $task == 'save')
 		{
 			$array['modified_by'] = JFactory::getUser()->id;
-		}
-
-		// Support for multiple field: notifyon
-		if (isset($array['notifyon']))
-		{
-			if (is_array($array['notifyon']))
-			{
-				$array['notifyon'] = implode(',',$array['notifyon']);
-			}
-			elseif (strpos($array['notifyon'], ',') != false)
-			{
-				$array['notifyon'] = explode(',',$array['notifyon']);
-			}
-			elseif (empty($array['notifyon']))
-			{
-				$array['notifyon'] = '';
-			}
-		}
-		else
-		{
-			$array['notifyon'] = '';
 		}
 
 		if (isset($array['params']) && is_array($array['params']))
@@ -199,12 +178,6 @@ class NotificationaryTablerule extends JTable
 			throw new Exception('Your <b>title</b> item "<b>' . $this->title . '</b>" already exists');
 		}
 		
-
-		// Support for subform field subform
-		if (is_array($this->subform))
-		{
-			$this->subform = json_encode($this->subform);
-		}
 
 		return parent::check();
 	}

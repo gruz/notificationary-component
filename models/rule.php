@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    CVS: 1.0.0
+ * @version    CVS: 1.0.1
  * @package    Com_Notificationary
- * @author     gruz <arygroup@gmail.com>
- * @copyright  2017 gruz
+ * @author     Gruz <arygroup@gmail.com>
+ * @copyright  2017 Gruz
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -104,19 +104,6 @@ class NotificationaryModelRule extends JModelAdmin
 			}
 
 			$data = $this->item;
-
-			// Support for multiple or not foreign key field: notifyon
-			$array = array();
-
-			foreach ((array) $data->notifyon as $value)
-			{
-				if (!is_array($value))
-				{
-					$array[] = $value;
-				}
-			}
-
-			$data->notifyon = $array;
 		}
 
 		return $data;
@@ -179,7 +166,7 @@ class NotificationaryModelRule extends JModelAdmin
 				{
 					throw new Exception($table->getError());
 				}
-				
+
 
 				// Trigger the before save event.
 				$result = $dispatcher->trigger($this->event_before_save, array($context, &$table, true));
@@ -228,5 +215,28 @@ class NotificationaryModelRule extends JModelAdmin
 				$table->ordering = $max + 1;
 			}
 		}
+	}
+
+	/**
+	 * Method to save the form data.
+	 *
+	 * @param   array  $data  The form data.
+	 *
+	 * @return  boolean  True on success.
+	 *
+	 * @since   1.6
+	 */
+	public function save($data)
+	{
+		$s = $data['params']['{notificationgroup'];
+		$data['title'] = $s['{notificationgroup'][0];
+		$data['state'] = $s['isenabled'][0];
+
+		if (parent::save($data))
+		{
+			return true;
+		}
+
+		return false;
 	}
 }

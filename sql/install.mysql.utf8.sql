@@ -8,11 +8,7 @@ CREATE TABLE IF NOT EXISTS `#__notificationary` (
 `created_by` INT(11)  NOT NULL ,
 `modified_by` INT(11)  NOT NULL ,
 `title` VARCHAR(255)  NOT NULL ,
-`notifyon` VARCHAR(255)  NOT NULL ,
-`test` VARCHAR(255)  NOT NULL ,
-`subform` TEXT NOT NULL ,
-`toggle` TINYINT(1)  NOT NULL ,
-`test2` VARCHAR(255)  NOT NULL ,
+`params` LONGTEXT NOT NULL ,
 PRIMARY KEY (`id`)
 ) DEFAULT COLLATE=utf8mb4_unicode_ci;
 
