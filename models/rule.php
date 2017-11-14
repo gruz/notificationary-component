@@ -230,7 +230,7 @@ class NotificationaryModelRule extends JModelAdmin
 	{
 		$s = $data['params']['{notificationgroup'];
 		$data['title'] = $s['{notificationgroup'][0];
-		$data['state'] = $s['isenabled'][0];
+		// ~ $data['state'] = $s['isenabled'][0];
 
 		if (parent::save($data))
 		{

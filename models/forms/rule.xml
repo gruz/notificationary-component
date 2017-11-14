@@ -23,15 +23,8 @@
 
 			<field name="{notificationgroup" length="" maxrepeatlength="1" type="gjfields.variablefield" default="JGLOBAL_ARTICLES" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD__DEFAULT_RULE_GROUP_NAME" basetype="group"/>
 			<!-- Notification rules  { -->
-			<field name="isenabled" maxrepeatlength="1" type="gjfields.variablefield" basetype="list" default="1" label="JENABLED" description="">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
 
 			<field maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.textareafixed" name="use_json_template" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH" rows="2" cols="30" description="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH_DESC" inputAddition="/plugins/system/notificationary/helpers/field_jsonTemplateHelper.php;$output" class="pull-left" hint="PLG_SYSTEM_NOTIFICATIONARY_FIELD_RULE_TEMPLATE_HASH_PASTE"/>
-
-
-			<field name="{rule_enabled" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler" param="isenabled" value="1"/>
 
 				<!-- action and state { -->
 				<field name="{action_state_can_view" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote" class="margin-bottom-medium" label="PLG_SYSTEM_NOTIFICATIONARY_FIELD_ACTION_STATE_CAN_VIEW"/>
@@ -424,7 +417,6 @@
 					<field name="messagebodysource_custom}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
 				<field name="message_settings}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.blockquote"/>
 				<!--  message body } -->
-			<field name="rule_enabled}" maxrepeatlength="1" type="gjfields.variablefield" basetype="gjfields.toggler"/>
 
 			<field name="notificationgroup}" type="gjfields.variablefield" basetype="group"/>
 		</fieldset>

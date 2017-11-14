@@ -58,6 +58,8 @@ $document->addStyleSheet(JUri::root() . 'media/com_notificationary/css/form.css'
 				<input type="hidden" name="jform[checked_out_time]" value="<?php echo $this->item->checked_out_time; ?>" />
 				<input type="hidden" name="jform[params]" value="<?php echo $this->item->params; ?>" />
 
+				<?php echo $this->form->renderField('state'); ?>
+
 					<?php foreach ($this->form->getGroup('params') as $field) : ?>
 						<?php echo $field->renderField(); ?>
 					<?php endforeach; ?>
